@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="http://localhost:8080/style.css">
 </head>
-<body>
+<body id="target"> 
 	<header>
 		<h1><a href="http://localhost:8080">공릉동 패스파인더</a></h1>
 	</header>
@@ -16,12 +16,17 @@
 			<li><a href="http://localhost:8080/photo.html">사진</a></li>
 		</ol>
 	</nav>
+	<div id="btn">
+		<input type="button" value="white" onclick="document.getElementById('target').className='white'"/>
+		<input type="button" value="black" onclick="document.getElementById('target').className='black'"/>
+	</div>
+
 	<article>
 		<h2>사진</h2>
 		활동 사진
 		<ul>
 			<li>7월 첫주 활동</li>
-			<li>1차 캠프</li> 
+			<li>1차 캠프</li>
 			<li>7월 둘째주</li>
 		</ul>
 	</article>

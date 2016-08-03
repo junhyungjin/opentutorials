@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="http://localhost:8080/style.css">
 </head>
-<body>
+<body id="target">
 	<header>
 		<h1><a href="http://localhost:8080">공릉동 패스파인더</a></h1>
 	</header>
@@ -16,15 +16,20 @@
 			<li><a href="http://localhost:8080/photo.html">사진</a></li>
 		</ol>
 	</nav>
+	<div id="btn">
+		<input type="button" value="white" onclick="document.getElementById('target').className='white'"/>
+		<input type="button" value="black" onclick="document.getElementById('target').className='black'"/>
+	</div>
+
 	<article>
 		<h2>공지</h2>
 		새로운 소식
 		<ul>
 			<li>8월 일정</li>
-			<li>회비 안내</li> 
+			<li>회비 안내</li>
 			<li>패스파인더 시간</li>
 		</ul>
 	</article>
-	
+
 </body>
 </html>

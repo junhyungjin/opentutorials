@@ -1,3 +1,13 @@
+body.black {
+	background-color: black;
+	color: white;
+}
+
+body.white {
+	background-color: white;
+	color: black;
+}
+
 header {
 	border-bottom: 1px solid gray;
 	padding: 20px;
@@ -30,4 +40,8 @@ a {
 
 h2 {
 	color: red;
+}
+
+#btn {
+	float: right;
 }

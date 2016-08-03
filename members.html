@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="http://localhost:8080/style.css">
 </head>
-<body>
+<body id="target">
 	<header>
 		<h1><a href="http://localhost:8080">공릉동 패스파인더</a></h1>
 	</header>
@@ -16,11 +16,16 @@
 			<li><a href="http://localhost:8080/photo.html">사진</a></li>
 		</ol>
 	</nav>
+	<div id="btn">
+		<input type="button" value="white" onclick="document.getElementById('target').className='white'"/>
+		<input type="button" value="black" onclick="document.getElementById('target').className='black'"/>
+	</div>
+
 	<article>
 		<h2>멤버 소개</h2>
 		<ul>
 			<li>대장</li>
-			<li>부대장</li> 
+			<li>부대장</li>
 			<li>고문</li>
 			<li>총무</li>
 			<li>교사</li>
@@ -28,19 +33,19 @@
 		<h2>1분대</h2>
 		<ul>
 			<li>분대장</li>
-			<li>부분대장</li> 
+			<li>부분대장</li>
 			<li>분대원</li>
 		</ul>
 		<h2>2분대</h2>
 		<ul>
 			<li>분대장</li>
-			<li>부분대장</li> 
+			<li>부분대장</li>
 			<li>분대원</li>
 		</ul>
 		<h2>3분대</h2>
 		<ul>
 			<li>분대장</li>
-			<li>부분대장</li> 
+			<li>부분대장</li>
 			<li>분대원</li>
 		</ul>
 	</article>
