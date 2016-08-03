@@ -1,0 +1,33 @@
+header {
+	border-bottom: 1px solid gray;
+	padding: 20px;
+}
+
+nav {
+	border-right: 1px solid gray;
+	width: 200px;
+	height: 600px;
+	float: left;
+}
+
+nav ol {
+	list-style: none;
+}
+
+nav ol li {
+	padding: 5px;
+}
+
+article {
+	padding: 20px;
+	float: left;
+	font-size: 20px;
+}
+
+a {
+	text-decoration:none;
+}
+
+h2 {
+	color: red;
+}
