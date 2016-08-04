@@ -1,0 +1,4 @@
+<li><a href="http://localhost:8080/index.php?id=2">소개</a></li>
+<li><a href="http://localhost:8080/index.php?id=3">공지</a></li>
+<li><a href="http://localhost:8080/index.php?id=4">멤버</a></li>
+<li><a href="http://localhost:8080/index.php?id=5">사진</a></li>
