@@ -1,6 +1,7 @@
 <?php
 $conn = mysqli_connect("localhost","root","111111");
 mysqli_select_db($conn, 'opentutorials');
+$result = mysqli_query($conn, "SELECT * FROM topic");
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,10 +15,12 @@ mysqli_select_db($conn, 'opentutorials');
   </header>
     <nav>
         <ol>
-    <?php
-      echo file_get_contents("menu.txt");
-    ?>
-        </ ol>
+          <?php
+          while($row = mysqli_fetch_assoc($result);){
+            echo '<li><a href="http://localhost:8080/index.php?id='.$row['id'].'">'.$row['title'].'</a></li>'."\n";
+          }
+          ?>
+        </ol>
     </nav>
   <div id="btn">
     <input type="button" value="white" onclick="document.getElementById('target').className='white'"/>
