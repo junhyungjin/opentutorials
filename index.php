@@ -11,27 +11,27 @@ $result = mysqli_query($conn, "SELECT * FROM topic");
 </head>
 <body id="target">
     <header>
+      <img src="./img/pathfinder_logo.png" alt="pathfinderlogo">
         <h1><a href="http://localhost:8080/index.php">공릉동교회 패스파인더</a></h1>
   </header>
     <nav>
         <ol>
-          <?php
-          while($row = mysqli_fetch_assoc($result);){
-            echo '<li><a href="http://localhost:8080/index.php?id='.$row['id'].'">'.$row['title'].'</a></li>'."\n";
-          }
-          ?>
+					<?php
+					echo file_get_contents('menu.txt');
+					?>
         </ol>
     </nav>
-  <div id="btn">
-    <input type="button" value="white" onclick="document.getElementById('target').className='white'"/>
-    <input type="button" value="black" onclick="document.getElementById('target').className='black'" />
-  </div>
   <article>
   <?php
-    if( empty($_GET['id']) == false ) {
+    if( empty($_GET['id']) == false && $_GET['id'] != 2) {
       echo file_get_contents($_GET['id'].".txt");
+    }else if ($_GET['id'] == 2){
+        echo '<h2>공지</h2>';
+        while($row = mysqli_fetch_assoc($result)){
+          echo '<li><a href="http://localhost:8080/index.php?id='.$row['id'].'">'.$row['title'].'</a></li>'."\n";
+        }
     }else {
-    	echo "<h2>공릉동교회 패스파인더 입니다.</h2>";
+      echo "<h2>공릉동교회 패스파인더 입니다.</h2>";
     }
   ?>
   </article>

@@ -22,6 +22,7 @@ nav {
 
 nav ol {
 	list-style: none;
+	padding: 10px;
 }
 
 nav ol li {
@@ -32,6 +33,7 @@ article {
 	padding: 20px;
 	float: left;
 	font-size: 20px;
+	width: 800px;
 }
 
 a {
@@ -44,4 +46,9 @@ h2 {
 
 #btn {
 	float: right;
+}
+
+header img{
+  float:right;
+  height:100px;
 }
