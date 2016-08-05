@@ -27,18 +27,11 @@ $result = mysqli_query($conn, "SELECT * FROM topic");
     <a href="http://localhost:8080/write.php">쓰기</a>
 	</div>
   <article>
-  <?php
-    if( empty($_GET['id']) == false && $_GET['id'] != 2) {
-      echo file_get_contents($_GET['id'].".txt");
-    }else if ($_GET['id'] == 2){
-        echo '<h2>공지</h2>';
-        while($row = mysqli_fetch_assoc($result)){
-          echo '<li><a href="http://localhost:8080/index.php?id='.$row['id'].'">'.$row['title'].'</a></li>'."\n";
-        }
-    }else {
-      echo "<h2>공릉동교회 패스파인더 입니다.</h2>";
-    }
-  ?>
+    <form action="process.php" method="post">
+    <p>제목: <input type="text" name="title"></P>
+      <p>작성자: <input type="text" name="author"></p>
+      <p>내용: <textarea name="description"></textarea>
+        <input type="submit" name="name">
   </article>
 </body>
 </html>
