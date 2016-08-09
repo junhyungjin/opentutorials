@@ -1,6 +1,2 @@
-<h2>공지</h2>
-  $sql = 'SELECT * FROM topic WHERE id=2;
-  $result = mysqli_query($conn, $sql);
-  $row = mysqli_fetch_assoc($result);
-  echo '<h2>'.$row['title'].'</h2>';
-  echo $row['description'];
+<h2>변수와 상수</h2>
+변수는 바뀌는 것 상수는 바뀌지 않은 것

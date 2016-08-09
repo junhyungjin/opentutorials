@@ -1,6 +1,6 @@
 <?php
-$conn = mysqli_connect("localhost","root","111111");
-mysqli_select_db($conn, 'opentutorials');
+$conn = mysqli_connect("localhost", "root", 111111);
+mysqli_select_db($conn, "opentutorials");
 $result = mysqli_query($conn, "SELECT * FROM topic");
 ?>
 <!DOCTYPE html>
@@ -11,33 +11,33 @@ $result = mysqli_query($conn, "SELECT * FROM topic");
 </head>
 <body id="target">
     <header>
-      <img src="./img/pathfinder_logo.png" alt="pathfinderlogo">
-        <h1><a href="http://localhost:8080/index.php">공릉동교회 패스파인더</a></h1>
+    <img src="https://s3.ap-northeast-2.amazonaws.com/opentutorials-user-file/course/94.png" alt="생활코딩">
+        <h1><a href="http://localhost:8080/index.php">JavaScript</a></h1>
   </header>
     <nav>
         <ol>
-					<?php
-					echo file_get_contents('menu.txt');
-					?>
+    <?php
+    while( $row = mysqli_fetch_assoc($result)){
+      echo '<li><a href="http://localhost:8080/index.php?id='.$row['id'].'">'.$row['title'].'</a></li>'."\n";
+    }
+    ?>
         </ol>
     </nav>
-  <div id="btn">
-		<input type="button" value="white" onclick="document.getElementById('target').className='white'"/>
-		<input type="button" value="black" onclick="document.getElementById('target').className='black'"/>
+  <div id="control">
+    <input type="button" value="white" onclick="document.getElementById('target').className='white'"/>
+    <input type="button" value="black" onclick="document.getElementById('target').className='black'" />
     <a href="http://localhost:8080/write.php">쓰기</a>
-	</div>
+  </div>
   <article>
   <?php
-    if( empty($_GET['id']) == false && $_GET['id'] != 2) {
-      echo file_get_contents($_GET['id'].".txt");
-    }else if ($_GET['id'] == 2){
-        echo '<h2>공지</h2>';
-        while($row = mysqli_fetch_assoc($result)){
-          echo '<li><a href="http://localhost:8080/index.php?id='.$row['id'].'">'.$row['title'].'</a></li>'."\n";
-        }
-    }else {
-      echo "<h2>공릉동교회 패스파인더 입니다.</h2>";
-    }
+  if(empty($_GET['id']) === false ) {
+      $sql = 'SELECT * FROM topic WHERE id='.$_GET['id'];
+      $result = mysqli_query($conn, $sql);
+      $row = mysqli_fetch_assoc($result);
+      echo '<h2>'.$row['title'].'</h2>';
+      echo '<p>'.$row['author'].'</p>';
+      echo $row['description'];
+  }
   ?>
   </article>
 </body>

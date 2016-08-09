@@ -1,53 +1,34 @@
-body.black {
-	background-color: black;
-	color: white;
+body.white{
+  background-color:white;
+  color:black;
+}
+body.black{
+  background-color:black;
+  color:white;
 }
 
-body.white {
-	background-color: white;
-	color: black;
+header{
+  border-bottom:1px solid gray;
+  padding:20px;
 }
-
-header {
-	border-bottom: 1px solid gray;
-	padding: 20px;
-}
-
 nav {
-	border-right: 1px solid gray;
-	width: 200px;
-	height: 600px;
-	float: left;
+  border-right:1px solid gray;
+  width:200px;
+  height:600px;
+  float:left;
 }
-
-nav ol {
-	list-style: none;
-	padding: 10px;
+nav ol{
+  list-style:none;
+  padding:0;
 }
-
-nav ol li {
-	padding: 5px;
+article{
+  float:left;
+  padding:20px;
+  width:500px;
 }
-
-article {
-	padding: 20px;
-	float: left;
-	font-size: 20px;
-	width: 800px;
+#control{
+  float:right;
 }
-
-a {
-	text-decoration:none;
-}
-
-h2 {
-	color: blue;
-}
-
-#btn {
-	float: right;
-}
-
 header img{
   float:right;
   height:100px;
