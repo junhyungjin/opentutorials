@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost", "root", 111111);
+$conn = mysqli_connect("localhost", "root", "disress");
 mysqli_select_db($conn, "opentutorials");
 $result = mysqli_query($conn, "SELECT * FROM topic");
 ?>
@@ -31,11 +31,11 @@ $result = mysqli_query($conn, "SELECT * FROM topic");
   <article>
   <?php
   if(empty($_GET['id']) === false ) {
-      $sql = 'SELECT * FROM topic WHERE id='.$_GET['id'];
+      $sql = "SELECT topic.id,title,name,description FROM topic LEFT JOIN user ON topic.author = user.id WHERE topic.id=".$_GET['id'];
       $result = mysqli_query($conn, $sql);
       $row = mysqli_fetch_assoc($result);
       echo '<h2>'.$row['title'].'</h2>';
-      echo '<p>'.$row['author'].'</p>';
+      echo '<p>'.$row['name'].'</p>';
       echo $row['description'];
   }
   ?>
