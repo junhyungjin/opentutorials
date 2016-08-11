@@ -1,6 +1,7 @@
 <?php
-$conn = mysqli_connect("localhost", "root", 111111);
-mysqli_select_db($conn, "opentutorials");
+require("config/config.php");
+require("lib/db.php");
+$conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
 $result = mysqli_query($conn, "SELECT * FROM topic");
 ?>
 <!DOCTYPE html>
@@ -18,10 +19,10 @@ $result = mysqli_query($conn, "SELECT * FROM topic");
         <ol>
     <?php
     while( $row = mysqli_fetch_assoc($result)){
-      echo '<li><a href="http://localhost:8080/index.php?id='.$row['id'].'">'.$row['title'].'</a></li>'."\n";
+      echo '<li><a href="http://localhost:8080/index.php?id='.$row['id'].'">'.htmlspecialchars($row['title']).'</a></li>'."\n";
     }
     ?>
-        </ol>
+        </ ol>
     </nav>
   <div id="control">
     <input type="button" value="white" onclick="document.getElementById('target').className='white'"/>
@@ -31,11 +32,12 @@ $result = mysqli_query($conn, "SELECT * FROM topic");
   <article>
   <?php
   if(empty($_GET['id']) === false ) {
-      $sql = 'SELECT * FROM topic WHERE id='.$_GET['id'];
+      $sql = "SELECT topic.id,title,name,description FROM topic LEFT JOIN user ON topic.author = user.id WHERE topic.id=".$_GET['id'];
       $result = mysqli_query($conn, $sql);
       $row = mysqli_fetch_assoc($result);
-      echo '<h2>'.$row['title'].'</h2>';
-      echo '<p>'.$row['author'].'</p>';
+      echo '<h2>'.htmlspecialchars($row['title']).'</h2>';
+      echo '<p>'.htmlspecialchars($row['name']).'</p>';
+      //echo strip_tags($row['description'], '<a><h1><h2><h3><h4><h5><ul><ol><li>');
       echo $row['description'];
   }
   ?>
