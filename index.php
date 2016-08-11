@@ -1,7 +1,12 @@
 <?php
+<<<<<<< HEAD
 require("config/config.php");
 require("lib/db.php");
 $conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
+=======
+$conn = mysqli_connect("localhost", "root", "disress");
+mysqli_select_db($conn, "opentutorials");
+>>>>>>> f0da13013bc64a878c89406c364f79bbcb71cc54
 $result = mysqli_query($conn, "SELECT * FROM topic");
 ?>
 <!DOCTYPE html>
@@ -35,9 +40,14 @@ $result = mysqli_query($conn, "SELECT * FROM topic");
       $sql = "SELECT topic.id,title,name,description FROM topic LEFT JOIN user ON topic.author = user.id WHERE topic.id=".$_GET['id'];
       $result = mysqli_query($conn, $sql);
       $row = mysqli_fetch_assoc($result);
+<<<<<<< HEAD
       echo '<h2>'.htmlspecialchars($row['title']).'</h2>';
       echo '<p>'.htmlspecialchars($row['name']).'</p>';
       //echo strip_tags($row['description'], '<a><h1><h2><h3><h4><h5><ul><ol><li>');
+=======
+      echo '<h2>'.$row['title'].'</h2>';
+      echo '<p>'.$row['name'].'</p>';
+>>>>>>> f0da13013bc64a878c89406c364f79bbcb71cc54
       echo $row['description'];
   }
   ?>
