@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
 require("config/config.php");
 require("lib/db.php");
 $conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
@@ -14,16 +13,6 @@ if($result->num_rows == 0){
   $user_id = $row['id'];
 }
 $sql = "INSERT INTO topic (title,description,author,created) VALUES('".$_POST['title']."', '".$_POST['description']."', '".$user_id."', now())";
-=======
-$conn = mysqli_connect("localhost", "root", "disress");
-mysqli_select_db($conn, "opentutorials");
-$sel = "SELECT * FROM user WHERE name="";
-$result = mysqli_query($conn, $sql);
-$row= mysqli_fetch_assoc($result);
-var_dump($row)
-exit;
-$sql = "INSERT INTO topic (title,description,author,created) VALUES('".$_POST['title']."', '".$_POST['description']."', '".$_POST['author']."', now())";
->>>>>>> f0da13013bc64a878c89406c364f79bbcb71cc54
 $result = mysqli_query($conn, $sql);
 header('Location: http://localhost:8080/index.php');
 ?>
